@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="python访问服务器以及爬虫（1）试听B站IT私塾视频的笔记。光听没有屁用，还是必须要亲自实现一遍，才能成为自己的东西。这个工作其实早就该做了，拖到现在还没看完确实该好好反省了。希望自己能够在这个月结束之前把这个爬虫弄出来。然后再去爬一个别的网站试试。然后就是和班上的同学一起把项目发表做了，之后就是改ppt了。然后，然后再就是学了一年的solidity，被我无限制拖延症留下来的远古巨坑，害。 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python访问服务器以及爬虫">
+<meta property="og:url" content="http://example.com/2022/06/27/2022_06_27/index.html">
+<meta property="og:site_name" content="Rabishop&#39;s Blog">
+<meta property="og:description" content="python访问服务器以及爬虫（1）试听B站IT私塾视频的笔记。光听没有屁用，还是必须要亲自实现一遍，才能成为自己的东西。这个工作其实早就该做了，拖到现在还没看完确实该好好反省了。希望自己能够在这个月结束之前把这个爬虫弄出来。然后再去爬一个别的网站试试。然后就是和班上的同学一起把项目发表做了，之后就是改ppt了。然后，然后再就是学了一年的solidity，被我无限制拖延症留下来的远古巨坑，害。 1">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-06-27T14:10:59.592Z">
+<meta property="article:modified_time" content="2022-07-08T10:40:35.027Z">
+<meta property="article:author" content="Goudan">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/06/27/2022_06_27/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/06/27/2022_06_27/","path":"2022/06/27/2022_06_27/","title":"python访问服务器以及爬虫"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python访问服务器以及爬虫 | Rabishop's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Rabishop's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Hello,world.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A5%E5%8F%8A%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">python访问服务器以及爬虫（1）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%88%E4%BA%86%E8%A7%A3%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%90%A7"><span class="nav-number">2.</span> <span class="nav-text">先了解些基础知识吧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#urllib"><span class="nav-number">2.1.</span> <span class="nav-text">urllib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get%E6%A8%A1%E5%BC%8F%E8%AE%BF%E9%97%AE%E7%BD%91%E9%A1%B5"><span class="nav-number">2.2.</span> <span class="nav-text">get模式访问网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#post%E6%A8%A1%E5%BC%8F%E8%AE%BF%E9%97%AE%E7%BD%91%E9%A1%B5"><span class="nav-number">2.3.</span> <span class="nav-text">post模式访问网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timeout%E8%B6%85%E6%97%B6%E6%A3%80%E6%B5%8B"><span class="nav-number">2.4.</span> <span class="nav-text">timeout超时检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#status%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81-x2F-getheaders-%E8%BF%94%E5%9B%9E%E5%93%8D%E5%BA%94%E5%A4%B4"><span class="nav-number">2.5.</span> <span class="nav-text">status返回状态&#x2F;getheaders()返回响应头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#header%E4%BC%AA%E8%A3%85"><span class="nav-number">2.6.</span> <span class="nav-text">header伪装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%9F%E8%AF%9D%E4%B8%8D%E5%A4%9A%E8%AF%B4%EF%BC%8C%E5%BC%80%E7%88%AC"><span class="nav-number">3.</span> <span class="nav-text">废话不多说，开爬</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#askURL-url-%E5%BE%97%E5%88%B0%E6%8C%87%E5%AE%9AURL%E7%9A%84%E7%BD%91%E9%A1%B5%E5%86%85%E5%AE%B9"><span class="nav-number">3.1.</span> <span class="nav-text">askURL(url) 得到指定URL的网页内容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#getData-%E7%88%AC%E5%8F%96%E5%A4%8D%E6%95%B0%E7%BD%91%E9%A1%B5"><span class="nav-number">4.</span> <span class="nav-text">getData() 爬取复数网页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BeautifulSoup%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5"><span class="nav-number">5.</span> <span class="nav-text">BeautifulSoup解析网页</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Goudan"
+      src="http://tva1.sinaimg.cn/large/005TIlQogy1h2yy7uxqs2j30u00u0wgn.jpg">
+  <p class="site-author-name" itemprop="name">Goudan</p>
+  <div class="site-description" itemprop="description">get better every day</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Rabishop" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Rabishop" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/moyuyihao" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;moyuyihao" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/27/2022_06_27/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://tva1.sinaimg.cn/large/005TIlQogy1h2yy7uxqs2j30u00u0wgn.jpg">
+      <meta itemprop="name" content="Goudan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rabishop's Blog">
+      <meta itemprop="description" content="get better every day">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python访问服务器以及爬虫 | Rabishop's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python访问服务器以及爬虫
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-06-27 23:10:59" itemprop="dateCreated datePublished" datetime="2022-06-27T23:10:59+09:00">2022-06-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-08 19:40:35" itemprop="dateModified" datetime="2022-07-08T19:40:35+09:00">2022-07-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="python访问服务器以及爬虫（1）"><a href="#python访问服务器以及爬虫（1）" class="headerlink" title="python访问服务器以及爬虫（1）"></a>python访问服务器以及爬虫（1）</h1><p>试听B站IT私塾视频的笔记。光听没有屁用，还是必须要亲自实现一遍，才能成为自己的东西。这个工作其实早就该做了，拖到现在还没看完确实该好好反省了。希望自己能够在这个月结束之前把这个爬虫弄出来。然后再去爬一个别的网站试试。然后就是和班上的同学一起把项目发表做了，之后就是改ppt了。然后，然后再就是学了一年的solidity，被我无限制拖延症留下来的远古巨坑，害。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">金秀树啊金秀树！你怎么能如此堕落！先前订下的学习计划你都忘了吗？			-名人名言其一</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">白天再打游戏就是狗			-名人名言其二</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我想打钢4			-名人名言其三</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h1 id="先了解些基础知识吧"><a href="#先了解些基础知识吧" class="headerlink" title="先了解些基础知识吧"></a>先了解些基础知识吧</h1><h2 id="urllib"><a href="#urllib" class="headerlink" title="urllib"></a>urllib</h2><p>后宫男主</p>
+<p>使用例：</p>
+<pre><code>import urllib.request
+</code></pre>
+<h2 id="get模式访问网页"><a href="#get模式访问网页" class="headerlink" title="get模式访问网页"></a>get模式访问网页</h2><p>get：你好！我是源码获取小天才（突然联想到某白毛），你要是想获得源码，用我就没错啦。（评价：萝莉形函数，身材短小，容易使用）</p>
+<p>使用例：</p>
+<pre><code>response = urllib.request.urlopen(&quot;http://www.baidu.com&quot;)
+print(response.read().decode(&#39;utf-8&#39;))
+</code></pre>
+<h2 id="post模式访问网页"><a href="#post模式访问网页" class="headerlink" title="post模式访问网页"></a>post模式访问网页</h2><p>post：想要我帮你访问网页？哼，你有表单吗？（评价1：可能有点傲娇吧，不过还是挺好攻略的，持有表单就可以了）（评价2：最常见的女主类型）</p>
+<p>使用<a target="_blank" rel="noopener" href="http://httpbin.org/post%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%EF%BC%8C%E7%BD%91%E9%A1%B5%E4%BC%9A%E7%BB%99%E4%BD%A0%E6%8F%90%E4%BE%9B%E8%BF%94%E5%9B%9E%E6%A1%88%E4%BE%8B">http://httpbin.org/post进行测试，网页会给你提供返回案例</a></p>
+<p>使用例：</p>
+<pre><code>data = bytes(urllib.parse.urlencode(&#123;&quot;hello&quot;:&quot;world&quot;&#125;),encoding = &quot;utf-8&quot;)
+
+response = urllib.request.urlopen(&quot;http://httpbin.org/post&quot;,data = data)
+print(response.read().decode(&#39;utf-8&#39;))
+</code></pre>
+<h2 id="timeout超时检测"><a href="#timeout超时检测" class="headerlink" title="timeout超时检测"></a>timeout超时检测</h2><p>timeout：服务器不给回复？网络延迟大？还是得靠本宝宝（评价：不设置看你跑多久）</p>
+<pre><code>try:
+    response = urllib.request.urlopen(&quot;http://httpbin.org/get&quot;,timeout=0.01)
+    print(response.read().decode(&#39;utf-8&#39;))
+except urllib.error.URLError as e:
+    print(&quot;time out!&quot;)
+</code></pre>
+<h2 id="status返回状态-x2F-getheaders-返回响应头"><a href="#status返回状态-x2F-getheaders-返回响应头" class="headerlink" title="status返回状态&#x2F;getheaders()返回响应头"></a>status返回状态&#x2F;getheaders()返回响应头</h2><p>status: 418，我是一个茶壶（评价：所以说有些人就是矫情，茶壶凭什么不能泡咖啡）</p>
+<pre><code>response = urllib.request.urlopen(&quot;https://www.douban.com&quot;)
+print(response.status)
+</code></pre>
+<p>getheaders()：虽然没什么用，但是我能返回响应头（评价：现在还不知道有什么用的方法）</p>
+<pre><code>response = urllib.request.urlopen(&quot;https://www.baidu.com&quot;)
+print(response.getheaders())
+print(response.getheader(&quot;Server&quot;))
+</code></pre>
+<h2 id="header伪装"><a href="#header伪装" class="headerlink" title="header伪装"></a>header伪装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">生活告诉你:做人不能太老实。</span><br><span class="line">服务器告诉爬虫：做翀不能太老实。 -鲁迅</span><br></pre></td></tr></table></figure>
+
+<p>一些服务器发现你是爬虫就不鸟你了，他们会看你的header里面的浏览器信息。救命，怎么办呢？当然是不老实的改下header就计划通了。</p>
+<pre><code>url = &quot;https://www.douban.com&quot;
+headers = &#123;
+    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36&quot;
+&#125;
+
+req = urllib.request.Request(url=url, headers=headers)
+response = urllib.request.urlopen(req)
+
+print(response.read().decode(&quot;utf-8&quot;))
+</code></pre>
+<h1 id="废话不多说，开爬"><a href="#废话不多说，开爬" class="headerlink" title="废话不多说，开爬"></a>废话不多说，开爬</h1><h2 id="askURL-url-得到指定URL的网页内容"><a href="#askURL-url-得到指定URL的网页内容" class="headerlink" title="askURL(url) 得到指定URL的网页内容"></a>askURL(url) 得到指定URL的网页内容</h2><p>这里爬取的是豆瓣高评价电影前100的第一页</p>
+<pre><code>def askURL(url):
+    head = &#123;
+        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36&quot;
+    &#125;#用户代理，模拟头部信息
+
+    request = urllib.request.Request(url,headers=head)
+    html = &quot;&quot;
+    try:
+        response = urllib.request.urlopen(request)
+        html = response.read().decode(&#39;utf-8&#39;)
+        print(html)
+    except urllib.error.URLError as e:
+        if hasattr(e, &quot;code&quot;):
+            print(e.code)
+        if hasattr(e, &quot;reason&quot;):
+            print(e.reason)
+    return html
+</code></pre>
+<h1 id="getData-爬取复数网页"><a href="#getData-爬取复数网页" class="headerlink" title="getData() 爬取复数网页"></a>getData() 爬取复数网页</h1><h1 id="BeautifulSoup解析网页"><a href="#BeautifulSoup解析网页" class="headerlink" title="BeautifulSoup解析网页"></a>BeautifulSoup解析网页</h1><p>不过首先得把包安了不是吗（流汗黄豆）<br>搞个百度的官网分析分析，都学了这么久了就不要自己手动去复制了</p>
+<pre><code>from bs4 import BeautifulSoup
+
+try:
+    response = urllib.request.urlopen(&quot;https://www.baidu.com&quot;, timeout=1)
+    file = open(&quot;./baidu.html&quot;, &quot;w&quot;)
+    html = response.read().decode(&#39;utf-8&#39;)
+
+    print(str(html))
+
+    file.write(str(html))
+    file.close()
+except urllib.error.URLError as e:
+    print(&quot;time out&quot;)
+</code></pre>
+<p>保存下来，读取然后分析</p>
+<pre><code>file = open(&quot;./baidu.html&quot;, &quot;rb&quot;)
+html = file.read().decode(&#39;utf-8&#39;)
+bs = BeautifulSoup(html, &quot;html.parser&quot;)
+</code></pre>
+<p>##1.Tag 标签及其内容：拿到第一个指定内容<br>Tag:我觉得我不常用XD</p>
+<pre><code>print(bs.title)
+print(type(bs.title))
+</code></pre>
+<p>##2.NavigableString 标签里面的内容(文本内容和标签属性)<br>NavigableString：我们的主角，超人，superstar。文本分析就靠它</p>
+<pre><code>print(bs.title.string)
+print(type(bs.title.string)) #输出文字内容
+print(bs.a.attrs) #输出标签属性值
+</code></pre>
+<p>##3.BeautifulSoup 表示整个文档<br>不知道有什么卵用</p>
+<pre><code>print(type(bs))
+print(bs)
+</code></pre>
+<p>##4.Comment 特殊的NavigableString 输出不包括注释符<br>不知道有什么卵用X2</p>
+<pre><code>print(bs.a.string)
+print(type(bs.a.string))
+</code></pre>
+<p>#—————————————-最美分割线—————————————-</p>
+<p>##文档的遍历<br>不太常用</p>
+<pre><code>for item in bs.head.contents:
+    print(item)
+</code></pre>
+<p>##文档的搜索</p>
+<p>###1.find_all() 字符串搜索<br>#1.1.字符串过滤与其完全相匹配的标签<br>t_list &#x3D; bs.find_all(“a”)<br>print(t_list)</p>
+<p>#1.2.正则表达式搜索<br>t_list &#x3D; bs.find_all(re.compile(“a”))<br>print(t_list)</p>
+<p>#1.3.根据函数搜素，用于自定义<br>def name_is_exists(tag):<br>    return tag.has_attr(“name”)</p>
+<p>t_list &#x3D; bs.find_all(name_is_exists)<br>print(t_list)</p>
+<p>#2.kwargs 参数收索<br>t_list &#x3D; bs.find_all(id&#x3D;”head”)<br>t_list &#x3D; bs.find_all(class_&#x3D;True)<br>t_list &#x3D; bs.find_all(href&#x3D;”&#x2F;&#x2F;<a target="_blank" rel="noopener" href="http://www.baidu.com/licence/&quot;">www.baidu.com/licence/&quot;</a>)</p>
+<p>for item in t_list:<br>    print(item)<br>#3.text参数<br>t_list &#x3D; bs.find_all(text&#x3D;”百度APP扫码登录”) #查询文本内容<br>t_list &#x3D; bs.find_all(text&#x3D;re.compile(“百度”)) #查询正则表表达式文本内容</p>
+<p>for item in t_list:<br>    print(item)</p>
+<p>#4.limit 参数<br>t_list &#x3D; bs.find_all(text&#x3D;re.compile(“百度”), limit&#x3D;3) #设置查找数量</p>
+<p>for item in t_list:<br>    print(item)<br>‘’’</p>
+<p>#5.css选择器</p>
+<p>t_list &#x3D; bs.select(‘title’) #标签查找<br>t_list &#x3D; bs.select(“.mnav”) #类名查找<br>t_list &#x3D; bs.select(“#u1”) #id查找<br>t_list &#x3D; bs.select(“a[class&#x3D;’text-color’]”) #属性查找<br>t_list &#x3D; bs.select(“head &gt; meta”) #子标签查找<br>t_list &#x3D; bs.select(“.mnav ~ .mnav”) #兄弟标签查找</p>
+<p>for item in t_list:<br>    print(item.get_text())</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/17/2022_06_17/" rel="prev" title="作业：Blackjack智能合约">
+                  <i class="fa fa-chevron-left"></i> 作业：Blackjack智能合约
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/08/2022_07_08/" rel="next" title="暗号技術特論期末試験">
+                  暗号技術特論期末試験 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Goudan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

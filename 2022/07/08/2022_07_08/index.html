@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="之前都没有好好上这个课，找个时间好好的听一遍吧，对写论文应该很有用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="暗号技術特論期末試験">
+<meta property="og:url" content="http://example.com/2022/07/08/2022_07_08/index.html">
+<meta property="og:site_name" content="Rabishop&#39;s Blog">
+<meta property="og:description" content="之前都没有好好上这个课，找个时间好好的听一遍吧，对写论文应该很有用">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-07-08T10:15:35.820Z">
+<meta property="article:modified_time" content="2022-07-08T10:39:55.710Z">
+<meta property="article:author" content="Goudan">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/07/08/2022_07_08/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/07/08/2022_07_08/","path":"2022/07/08/2022_07_08/","title":"暗号技術特論期末試験"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>暗号技術特論期末試験 | Rabishop's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Rabishop's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Hello,world.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9A%97%E5%8F%B7%E6%8A%80%E8%A1%93%E7%89%B9%E8%AB%96%E6%9C%9F%E6%9C%AB%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88"><span class="nav-number">1.</span> <span class="nav-text">暗号技術特論期末レポート</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text"></span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Goudan"
+      src="http://tva1.sinaimg.cn/large/005TIlQogy1h2yy7uxqs2j30u00u0wgn.jpg">
+  <p class="site-author-name" itemprop="name">Goudan</p>
+  <div class="site-description" itemprop="description">get better every day</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Rabishop" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Rabishop" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/moyuyihao" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;moyuyihao" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/08/2022_07_08/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://tva1.sinaimg.cn/large/005TIlQogy1h2yy7uxqs2j30u00u0wgn.jpg">
+      <meta itemprop="name" content="Goudan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rabishop's Blog">
+      <meta itemprop="description" content="get better every day">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="暗号技術特論期末試験 | Rabishop's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          暗号技術特論期末試験
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-08 19:15:35 / Modified: 19:39:55" itemprop="dateCreated datePublished" datetime="2022-07-08T19:15:35+09:00">2022-07-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>之前都没有好好上这个课，找个时间好好的听一遍吧，对写论文应该很有用</p>
+<span id="more"></span>
+
+
+<h1 id="暗号技術特論期末レポート"><a href="#暗号技術特論期末レポート" class="headerlink" title="暗号技術特論期末レポート"></a>暗号技術特論期末レポート</h1><p><strong>注意事項</strong>:</p>
+<blockquote>
+<p>•期末レポートは、従来の期末試験に代わるレポート課題です。解答をレポートの形でまとめ、指定された締め切り日までにmanabaから提出してください。</p>
+<p>•手書きノートを「スキャンアプリ」などで電子化したファイルでも構いませんが、読みやすいようにスキャンするとともに、最終的にはpdfファイルとして提出してください(解答ファイルが複数になる場合はzipファイルとして圧縮して1ファイルとして提出するようお願いします)。</p>
+<p>•日本語または英語で解答してください。</p>
+<p>•必ず問題番号を書いてから解答を記述してください。レポートに問題文を再掲する必要はありません。</p>
+<p>•これは自宅試験(take-home exam)に相当するため自分の力のみで解いてください(自分以外の人に公開する，相談するなどして協力を得ないでください，不正行為に相当します)。</p>
+<p>•解答作成にあたって、講義資料(演習問題含む)や外部の資料，インターネットの情報などの参照は自由です。しかし外部資料等を参照してその事実や定理などを使う場合は必ず出典を明記してください(出典を明記しても減点にはなりません)。</p>
+<p>•様々な資料の参照が自由な形式なため，ある程度の差がつくよう，また誰にとっても何かしら解ける問題が含まれているよう，問題数は通常の期末試験よりかなり多めに設定しています。そのためAを得るためには全ての問題を解かなければならないということはありません。また解けた問題数が少なくとも平均点調整により単位を得られる可能性があります。</p>
+</blockquote>
+<p><strong>問題ここから:</strong></p>
+<p>1.7<sup>831940123481988932</sup>mod 11の値を計算機ではなく手計算で得るにはどのようなアルゴリズムがありうるか説明せよ。</p>
+<blockquote>
+<p>フェルマーの小定理によると、11は奇素数でgcd(7,11)&#x3D;1のとき、</p>
+<p>7<sup>10</sup>≡1mod11	①</p>
+<p>7<sup>831940123481988932</sup> &#x3D; (7<sup>83194012348198890</sup>) * (7<sup>2</sup>)であり、</p>
+<p>7<sup>831940123481988932</sup> ≡ [{(7<sup>10</sup>)<sup>8319401234819889</sup>}mod11 * (7<sup>2</sup>)mod11]mod11である。</p>
+<p>①より、7<sup>831940123481988932</sup> ≡ (1mod11 * 49mod11)mod11 ≡ 5mod11</p>
+</blockquote>
+<p>2.n&#x3D;pqがRSAの法のときx<sup>2</sup>≡1 modnとなるxは1,−1以外にもありえた。pが奇素数のときx<sup>2</sup>≡1modpとなるxは1,−1のみであることを証明せよ(一般的に−1≡m−1 modmであることに注意)。</p>
+<blockquote>
+<p>あるnに対して、1&lt;ｎ&lt;p-1、ｎ<sup>2</sup>≡1modpが存在すると仮定し、</p>
+<p>ｎ<sup>2</sup>-1≡0modp ③</p>
+<p>(n-1)*(n+1)≡0modp ④</p>
+<p>④より、n&#x3D;1またはn&#x3D;p-1 </p>
+<p>1&lt;ｎ&lt;p-1より、そのようなｎは存在しない</p>
+<p>つまり、x<sup>2</sup>≡1modpとなるxは1,−1のみである</p>
+</blockquote>
+<p>3.n&#x3D;pqrでp, q, rは異なる奇素数とする。このとき一般にx2≡1 modnとなるxは何個ありうるか，理由とともに説明せよ(ここでxが解のときx+nはmodnにおける新たな解とは見なさないことにする)。</p>
+<blockquote>
+<p>x<sup>2</sup>≡1modnをx<sup>2</sup>≡1modp,x<sup>2</sup>≡1modq,x<sup>2</sup>≡1modrをそれぞれ解き、</p>
+<p>x<sup>2</sup>≡a<sup>2</sup>modp ①</p>
+<p>x<sup>2</sup>≡b<sup>2</sup>modq ②</p>
+<p>x<sup>2</sup>≡c<sup>2</sup>modr ③</p>
+<p>①より、x≡amodpまたはx≡(-a)modp</p>
+<p>②より、x≡bmodqまたはx≡(-b)modq</p>
+<p>②より、x≡cmodqまたはx≡(-c)modr</p>
+<p>CRTより、xは八つの解を持っている</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>| :—–: | :—–:| :—: | :—: |<br>| 1. | x≡amodp | x≡bmodq | x≡cmodr |<br>| 2. | x≡amodp | x≡bmodq | x≡(-c)modr |<br>| 3. | x≡amodp | x≡(-b)modq | x≡cmodr |<br>| 4. | x≡amodp | x≡(-b)modq | x≡(-c)modr |<br>| 5. | x≡(-a)modp | x≡bmodq | x≡cmodr |<br>| 6. | x≡(-a)modp | x≡bmodq | x≡(-c)modr |<br>| 7. | x≡(-a)modp | x≡(-b)modq | x≡cmodr |<br>| 8. | x≡(-a)modp | x≡(-b)modq | x≡(-c)modr |</p>
+</blockquote>
+<p>4.pを奇素数，g∈Z∗pを生成元としたとき，Z∗pにはgを含めて全部で何個の生成元が存在するか理由とともに説明せよ。</p>
+<blockquote>
+<p>暗号技術特論演習4の問3によると、</p>
+<p>あるa<sup>x</sup>に対して、a<sup>x</sup>の位数＝p-1&#x2F;gcd(x,p-1)</p>
+<p>したがって、gcd(x,p-1)&#x3D;1のとき、a<sup>x</sup>は生成元である</p>
+<p>つまり、Z∗pの生成元はφ(p-1)個である</p>
+</blockquote>
+<p>5.容量がnリットル,mリットルの2つのコップと，容量が十分に大きなコップLがあるとする。</p>
+<p>2つのコップを組み合わせてLの中に1リットルの水を入れるゲームを行うとする(n, mは正の整数)。</p>
+<p>(a)例えばn&#x3D; 3, m&#x3D; 5であれば，nのコップで2回，Lに水を入れ，Lからmのコップで1回，水をすくい出せばLの中に1リットルの水が残り成功。</p>
+<p>(b)例えばn&#x3D; 11, m&#x3D; 7であれば，nのコップで2回，Lに水を入れ，Lからmのコップで3回，水をすくい出せばLの中に1リットルの水が残り成功。</p>
+<p>一方で例えばゲームの主催者からn&#x3D;m&#x3D; 3のコップを与えられた場合，このゲームには多分成功できそうにない。</p>
+<p>ゲームの主催者の不正を防ぐために，n, mを与えられ，ゲームに成功できるか否か判定する方法(原理の説明が正しければ厳密でなくてもよい)とその正当性を説明せよ。</p>
+<blockquote>
+<p>gcd(m,n)!&#x3D;1のとき、成功できない</p>
+<p>gcd(m,n) &#x3D; aに対して、k1*m + k2*n &#x3D; 1と仮定する</p>
+<p>mk1 + nk2 &#x3D; a*(k1*m&#x2F;a + k2*n&#x2F;a)</p>
+<p>(k1*m&#x2F;a + k2*n&#x2F;a)は整数であり、</p>
+<p>mk1 + nk2 &#x3D; a*(k1*m&#x2F;a + k2*n&#x2F;a) &gt;&#x3D; a</p>
+<p>したがって、1リットルの水を入れられない</p>
+</blockquote>
+<p>6.平文がM∈Z<sub>n</sub>であるRSA暗号文M<sup>e</sup>modnを得て，M∈S⊂Z<sub>n</sub>であれば解読に成功してMを取り出せるアルゴリズムAがあるとする(M̸∈Sのときは⊥を出力)。ここで|S||Z<sub>n</sub>|&#x3D;110つまり10%の成功確率であり、Sは固定だがどのような集合になっているかは不明とする。このときAを使って100%に近い確率でRSA暗号文から平文を取り出すアルゴリズムBを構成するにはどのようにすればよいか。</p>
+<blockquote>
+<p>乱数 r ∈ Z<sub>n</sub>を生成し,M<br>′ ← M<sup>er</sup>mod n を計算する</p>
+<p>A に M′ を入力し，出力を得る。</p>
+<p>− もし A が M を出力したのなら解読成功</p>
+<p>− もし A が ⊥ を出力したのなら再度乱数生成から繰り返す。</p>
+<p>• B は乱数 r でランダマイズしているので M′ ∈ S である確率は 1&#x2F;10 である。</p>
+<p>• よっておおよそ 10 回繰り返せば A は正しい答えを返してくれる。</p>
+</blockquote>
+<p>7.DH鍵共有ではgx, gymodpから鍵K≡gxymodpを共有する。このとき敵はgx, gymodpを盗聴できてもKを計算できないと仮定していた。今F(g, gxmodp) &#x3D;g1x(&#x3D;gx−1) modpと計算できるアルゴリズムFが開発されたとしよう。このとき次の問に答えよ。</p>
+<p>(a)F(gx, g) &#x3D;gx2modpとなることを示せ。</p>
+<p>(b)このときDH鍵共有は安全ではなくなってしまうことを示せ。ここでt≡v2modpを与えられ，その平方根であるvmodpは簡単に計算できると仮定してよい。</p>
+<blockquote>
+<p>(a)</p>
+<p>F(g , g<sup>x</sup>) &#x3D; g<sup>x&#x2F;x<sup>-1</sup></sup>mod p &#x3D; g<sup>x<sup>2</sup></sup>mod p</p>
+<p>(b)</p>
+<p>F(g , g<sup>x</sup>) &#x3D; g<sup>x<sup>2</sup></sup>mod p,<br>F(g , g<sup>y</sup>) &#x3D; g<sup>y<sup>2</sup></sup>mod p</p>
+<p>F(g , g<sup>x+y</sup>) &#x3D; g<sup>x<sup>2</sup>+</sup><br><sup>y<sup>2</sup>+</sup><br><sup>2xy</sup>mod p</p>
+<p>F(g , g<sup>x+y</sup>)&#x2F;(F(g , g<sup>x</sup>) * F(g , g<sup>y</sup>)) &#x3D; g<sup>2xy</sup>modp</p>
+<p>g<sup>2xy</sup>の平方根の計算し、<br>g<sup>xy</sup>を得る</p>
+</blockquote>
+<p>8.IND-CPAゲームをメッセージ暗号化の前にメッセージを圧縮して暗号化するようなゲームに変更するとする。このときIND-CPAゲームの定義においては安全だった暗号方式が圧縮付IND-CPAでは非安全になる場合がありうる。なぜか説明せよ。</p>
+<blockquote>
+<p>圧縮された2つの平文は長さが等しくないか完全に一致することがある</p>
+<p>したがって、IND-CPAでは非安全になる場合がある</p>
+</blockquote>
+<p>9.公開鍵(n, e)を持つRSA暗号を用いて，平文Mの暗号文E(M)を，暗号化の度にある乱数rを生成して，E(M) &#x3D;(r, r⊕(Memodn))のように定義するとする(ここで⊕はXOR演算とする)。このときこのような暗号化方法はIND-CPA安全性を満たすか否か説明せよ。</p>
+<blockquote>
+<p>E(M) &#x3D;(r, r⊕(M<sup>e</sup>modn))によって、</p>
+<p>攻撃者はr⊕r⊕(M<sup>e</sup>modn)を計算し、M<sup>e</sup>modnを得る</p>
+<p>M<sub>1</sub><sup>e</sup>modn,M<sub>2</sub><sup>e</sup>modnを計算し,M<sup>e</sup>modnと比較して,そのどちらが一致する<br>か判定することでゲームに勝つことができる</p>
+<p>IND-CPA安全性を満たさない</p>
+</blockquote>
+<p>10.ElGamal暗号はIND-CCA2安全か否か理由と共に答えよ。</p>
+<blockquote>
+<p>ElGamal暗号の定義によって、</p>
+<p>C&#x3D;(C1,C2)&#x3D;(g<sup>r</sup>modp, M * y<sup>r</sup>modp)</p>
+<p>乱数r’,M’を生成して，</p>
+<p>C’&#x3D;(C1,C2)&#x3D;(C1 * g<sup>r’</sup>modp, C2 * M’ * y<sup>r’</sup>modp)を計算し、</p>
+<p>C1’&#x3D;g<sup>r’+r</sup>modp  </p>
+<p>C2’&#x3D;(M’ * M) * g<sup>r’+r</sup>modp</p>
+<p>OracleにC’を復号し, M’’ &#x3D; M’ * Mを得る</p>
+<p>M’’ &#x2F; M’ &#x3D; Mとなっているため、</p>
+<p>ElGamal暗号はIND-CCA2安全ではない</p>
+</blockquote>
+<p>11.negligible関数は講義で紹介した定義以外にも複数の等価な定義が知られている。例えば「どのような整数i &gt;0に対してもlimn→∞nif(n) &#x3D; 0のときf(n)はnegligible関数である」という定義も存在している。このときf(n) &#x3D;1nlog2(log2(n))はnegligible関数か否か理由とともに説明せよ。</p>
+<blockquote>
+<p>$F(n) &#x3D; n^{i} * \frac{1}{n^{\log_{2}{(\log_{2}{n})} }} &#x3D; n^{\log_{2}{2^i}-\log_{2}{(\log_{2}{n})}} &#x3D; n^{i + \log_{2}{(\log_{n}{2})}} &#x3D; \frac{1}{n^{-\log_{2}{(\log_{n}{2})-i}}}$</p>
+<p>$\lim_{n \to \infty}{n^{-\log_{2}{(\log_{n}{2})-i}}} &#x3D; +\infty $<br>$\lim_{n \to \infty}F(n) &#x3D; 0 $</p>
+<p>したがって、f(n)はnegligible関数である</p>
+</blockquote>
+<p>12.{Xn}n∈Nc≈{Yn}n∈N，{Yn}n∈Nc≈{Zn}n∈Nであるとする．このとき{Xn}n∈Nc≈{Zn}n∈Nとなっているか?もしそうであるならそれを証明せよ，そうでないなら反例を示せ。</p>
+<blockquote>
+<p>$ 2 \Delta  (  X_ {n}  ,  Z_ {n}  ) &#x3D; $</p>
+<p>$ \sum |Pr[  X_ {n}   &#x3D; c]-Pr[  Z_ {n}  &#x3D; c]| &#x3D; $</p>
+<p>$ \sum |Pr[  X_ {n}  &#x3D; c]-Pr[  Y_ {n}  &#x3D; c]+Pr[  Y_ {n}  &#x3D; c]-Pr[  Z_ {n}  &#x3D; c]| ⩽ $</p>
+<p>$ \sum |Pr[  X_ {n}  &#x3D; c]-Pr[  Y_ {n}  &#x3D; c]| +   \sum  |Pr[  Y_ {n}  &#x3D; c]-Pr[ Z_ {n}  &#x3D; c]| &lt; $ $ 2 \epsilon(n) $</p>
+<p>したがって、$ {Xn}<em>{n∈\mathbb{N} } \overset{c}{\approx}  {Zn}</em>{n∈\mathbb{N} }$</p>
+</blockquote>
+<p>13.n&#x3D;pqをRSAの法とする。乱数r∈Znが選ばれs≡rnmodn2を与えられたとき，p, qを知らずにsからrを計算することは難しい。これはなぜか，DCR仮定が成り立つと仮定して説明せよ。</p>
+<blockquote>
+<p>DCR仮定が成り立つため、</p>
+<p>攻撃者は s が n 次剰余かランダム値か識別できない</p>
+<p>素因数分解は困難なため、敵は p, q を得られず、</p>
+<p>ϕ(n<sup>2</sup>)も計算できないので、</p>
+<p>rを計算するのは難しい</p>
+</blockquote>
+<p>14.会社の管理者が素数p, qから社員全員で共通のRSAの法n&#x3D;pqを生成し，各社員Piに対してeidi&#x3D; 1 modφ(n)であるような異なる鍵ei, diを渡す運用を取るとする(このとき各社員はp, qを知らされない)。このときPiの公開鍵はn, eiで秘密鍵はdiである。このような使用方法では例えばP1は自分に与えられたe1, d1と他の社員P2の公開鍵e2を使って，P2宛ての暗号文を復号できてしまうことがある。なぜか説明せよ(厳密な解法アルゴリズムでなく原理の説明のみでよい)。</p>
+<blockquote>
+<p>e<sub>1</sub>* d<sub>1</sub>&#x3D; 1modn</p>
+<p>e<sub>2</sub>* d<sub>2</sub>&#x3D; 1modn</p>
+<p>d<sub>2</sub>&#x3D; e<sub>1</sub>* d<sub>1</sub>&#x2F; e<sub>2</sub>modn</p>
+<p>e<sub>2</sub>|d<sub>1</sub>またはe<sub>2</sub>|e<sub>1</sub>の時、</p>
+<p>d2を計算し、暗号文を復号することができる</p>
+</blockquote>
+<p>15.Bitcoinにおいてお金の所有者は金額に相当するデータとして実際には何を保持しているか。またbitcoinの支払い時に所有者が行う暗号処理は何か簡単に説明せよ。</p>
+<blockquote>
+<p>ビットコインのデータは、プルーフ・オブ・ワークの記録を保持している</p>
+<p>各所有者は、直前の取引のハッシュと次の所有者の公開鍵にデジタル署名を行い、これをコインの末尾に追加することでコインを次の所有者に譲渡する。受取人は署名を検証することで、所有権の連鎖を確認することができる</p>
+</blockquote>
+<p>16.ある企業が秘密データを秘密分散し，シェアを複数のクラウドサーバに保存していたとする。そしていくつかのクラウドサーバが侵入され，秘密復元には至らない程度にいくつかのシェアが敵に盗まれたが，侵入は無事発見され，敵のマルウェアは除去されたとする。このまま何もせずにいると，更に他のクラウドサーバが侵入され，敵が秘密データを復元できてしまうかもしれない。このとき秘密分散に対して企業が取り得る対策はどのようなものがありうるか。ここで秘密データを変更したり、秘密を一旦復元するということはできないと仮定する。</p>
+<blockquote>
+<p>元の秘密 s は多項式 f(x) を使って秘密分散されているとする． </p>
+<p>安全なサーバAがは (安全なサーバの数, すべてのサーバの数) しきい値法を使ってランダムな多項式 g(x) を使って秘密を 0 とし て秘密分散する</p>
+<p>各安全なサーバは g(i) を安全なサーバAより受信した後，自分のシェアを g(i)+ f(i) に更新する. g(i) + f(i) はしきい値法の性質よりやはり s のシェアになっている．</p>
+<p>また秘密 0 の新たなシェア g(i) によって元のシェア f(i) は ランダマイズされるため，敵が既に得たシェアは無意味なものとなる</p>
+</blockquote>
+<p>17.E(m)で平文mのRSA暗号文を表すとする。秘匿計算に基づく暗号電子オークション(最高額が勝者となる)において各入札者は自分の入札額sをE(s)として電子掲示板に書き込むとする(よって他人の暗号文E(s)も見れる)。このときAliceが指定した入札額sを知らずにE(s)から10%増しの入札額を提示して電子掲示板に書き込むにはどのようにすればいいか。ここでAliceの指定した入札額sは10の倍数になっていると仮定してよい。</p>
+<blockquote>
+<p>C<sub>1</sub> &#x3D; (11)<sup>e</sup>modn</p>
+<p>C<sub>2</sub> &#x3D; (10)<sup>e</sup>modn</p>
+<p>C &#x3D; (s)<sup>e</sup>modn</p>
+<p>C’ &#x3D; C<sub>1</sub> * C &#x2F; C<sub>2</sub></p>
+</blockquote>
+<p>18.サーバへのログイン時の認証において，ユーザは電子署名を生成して認証を行う方式と，ゼロ知識対話証明を行って認証を行う方式のどちらかを選べるとする。サーバが自分のログイン履歴を勝手に他者へ売ってしまうことを心配しているユーザは，どちらの認証方式を選ぶべきか，またそれはなぜか説明せよ。</p>
+<blockquote>
+<p>ゼロ知識証明を選べる</p>
+<p>ゼロ知識証明とは、「その命題が真である」という事実以外の情報を一切明らかにしないプロセスであることが特徴だからである</p>
+</blockquote>
+<p>19.Schnorr認証方式のStep1とStep2を入れ替えて実行する方式を構成したとする。この方式は安全か否か理由とともに説明せよ。</p>
+<blockquote>
+<p>配布資料の例の場合</p>
+<p>R&#x3D;y<sup>y*r-c</sup>, z&#x3D;rとする</p>
+<p>Schnorr認証方式のStep3の左辺は</p>
+<p>g<sup>z</sup> &#x3D; g<sup>r</sup> mod p</p>
+<p>Schnorr認証方式のStep3の右辺は</p>
+<p>Ry<sup>c</sup> &#x3D; y<sup>y*r-c+c</sup> &#x3D; y<sup>y*r</sup> &#x3D; (g<sup>r)<sup>sy</sup></sup> &#x3D; g<sup>r</sup> mod p</p>
+<p>この式は常に成立する</p>
+<p>したがって、安全ではない</p>
+</blockquote>
+<p>20.Schnorr認証方式においてProverは最初に乱数を選ぶ処理を実行する。もしこの乱数生成処理が弱く，同じ乱数をProverが2回使用するとどんな問題が起こりうるか説明せよ。</p>
+<blockquote>
+<p>c1 &#x3D; c2 + 1とする</p>
+<p>z1 &#x3D; r + c2*s + s</p>
+<p>z2 &#x3D; r + c2*s</p>
+<p>s &#x3D; z1-z2</p>
+<p>検証者は秘密sを手に入れることができる</p>
+</blockquote>
+<p>21.ある企業の不正を把握したジャーナリストがあるデータをマスコミ各社に送り、告発を行いたいと考えたとする。しかしジャーナリストが身分をマスコミにばらした場合、企業との内通者がマスコミにいるとジャーナリストの身に危険があるかもしれない。そのようなときにジャーナリストはどのような暗号に関連する手段を使えば安全に告発が行えるか説明せよ。</p>
+<blockquote>
+<p>Torなどの匿名通信網を利用して企業の不正のアップロード</p>
+</blockquote>
+<p>22.ある企業Cが物品売買用電子掲示板サイトBBを運営するとし，Cは公開&#x2F;秘密鍵(pkC, skC)を持っているとする。</p>
+<p>•BBに書き込みをしたい人Piは(pki, ski)を生成し，pkiに対する署名σC(pki)をCから得る必要がある(CはPiが信用できる人であればσC(pki)を発行)。</p>
+<p>•BBへの書き込みではPiは(M, σi(M), pki, σC(pki))をBBへ送り(σi(M)はskiによる署名)，BBは署名σi(M), σC(pki)を公開鍵pki, pkCで検証し正しければメッセージMのBBへの書き込みを許可する。</p>
+<p>この方法ではBBを運営するCはpki, Piの結び付きを知れるため，BBへのpkiによる書き込みから，Piがどのような売買をしているかある程度分かってしまい，匿名性の観点から問題がある。次の問に答えよ。</p>
+<blockquote>
+<p>(a)</p>
+<p>Cは(M, σi(M), pki, σC(pki))をもらったとき、</p>
+<p>hash(pki)を計算し、既存のhash(pk)を比較してPiの身分を識別できる。</p>
+<p>(b)</p>
+<p>CはPiに対してブラインド署名を行うことでPiがどの誰か秘匿できる。</p>
+</blockquote>
+<p>23.秘密計算において4つのsecret[a],[b],[c],[d]があるとする。このとき同じ値を出力する秘密計算(i) [d]×[a] + [d]×[b] + [d]×[c]と(ii) [d]×([a] + [b] + [c])を比較した場合，どちらを実行すべきか，理由とともに説明せよ。</p>
+<blockquote>
+<p>乗算では、Pi 間の通信が必要になる</p>
+<p>そのため乗算回数はなるべく減らす方が効率がよい</p>
+<p>したがって、(ii)の方が効率的だ</p>
+</blockquote>
+<p>24.ある秘密の値xが秘密分散されているとする。</p>
+<p>(x&#x3D;&#x3D; 2)∨(x&#x3D;&#x3D; 9)∨(x&#x3D;&#x3D; 91)を秘匿計算で判定し，判定結果をtrue(1)&#x2F;false(0)として再度秘密分散するのではなく明らかにしてしまうとする。これを効率的に行うにはどうすればよいか。当然判定結果から例えばxがもしかしたら6だったあるいは9だったかもしれないなどの余分な情報が漏れてはいけないとする。</p>
+<blockquote>
+<p>秘密の乱数 [r] を生成し、</p>
+<p>[r] × [x − 2] × [x − 9] × [x − 91] を計算して公開し、</p>
+<p>0 であればTRUE</p>
+<p>0 でなければFALSE</p>
+</blockquote>
+<p>25.秘密計算において2つのsecret[a],[b]がある状態から[a2] + [b2] + 2×[ab]を計算して得たいとき、なるべく効率的に計算結果を得るにはどうすればよいか。</p>
+<blockquote>
+<p>[a<sup>2</sup>] + [b<sup>2</sup>] + 2×[ab] &#x3D; [a+b] × [a+b]</p>
+<p>1回だけの乗算のほうが効率がいい</p>
+</blockquote>
+<p>26.次のように定義されているプログラムPがあるとする。</p>
+<p>P(x):(a)hardcodeされた値αからハッシュ関数hを計算しβ&#x3D;h(α)を得る。</p>
+<p>(b)βを出力。</p>
+<p>(つまりPはどのような入力xに対してもβを出力)このPにiOを適用したプログラムiO(P)を考える。通常Pの中身を見ればhardcodeされたαを得ることができるが、iO(P)からαを得るのは困難となる。これはどのような思考実験によって確認できるか説明せよ。</p>
+<p>27.iOを用いて，任意のパズルxを指定して平文を暗号化し，パズルの解wを持っている人であればその暗号文を復号可能な暗号化方法を構成せよ。このとき暗号化する人はwを知らずにxのみでも暗号化可能でなければならないとする。ここでパズルは解候補が与えられれば，それが解か否か多項式時間で確認できるアルゴリズムRがあると仮定してよい(つまりwが正解ならR(x, w) &#x3D; true，そのようなパズルは計算量理論ではクラスNPと呼ばれる)。またiOはプログラム内の値を秘匿できる機能を持つと仮定してよい。</p>
+<p>28.本講義での演習問題となりえそうな独自の問題と解答例をもしあれば記述せよ(良問であれば加点)。</p>
+<blockquote>
+<p>セッション8の問6の1問目で、vの逆元を使った</p>
+<p>割り算は避けるべきだと思っていた。nのオイラー関数がわからないので、これは難しい問題である</p>
+<p>ここでこの問題がどのように扱われているのか知りたい</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/27/2022_06_27/" rel="prev" title="python访问服务器以及爬虫">
+                  <i class="fa fa-chevron-left"></i> python访问服务器以及爬虫
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Goudan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
