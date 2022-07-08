@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="终于把狗屎一样的合作项目弄完了，改改研究PPT，继续把爬虫弄了 1我是狗			-名人名言其一  1我想打群星			-名人名言其二">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python访问服务器以及爬虫(2)">
+<meta property="og:url" content="http://example.com/2022/07/08/2022_07_08_2/index.html">
+<meta property="og:site_name" content="Rabishop&#39;s Blog">
+<meta property="og:description" content="终于把狗屎一样的合作项目弄完了，改改研究PPT，继续把爬虫弄了 1我是狗			-名人名言其一  1我想打群星			-名人名言其二">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-07-08T11:22:17.279Z">
+<meta property="article:modified_time" content="2022-07-08T13:28:48.620Z">
+<meta property="article:author" content="Goudan">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/07/08/2022_07_08_2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/07/08/2022_07_08_2/","path":"2022/07/08/2022_07_08_2/","title":"python访问服务器以及爬虫(2)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python访问服务器以及爬虫(2) | Rabishop's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Rabishop's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Hello,world.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">常用正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%A1%E9%AA%8C%E6%95%B0%E5%AD%97%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.0.1.</span> <span class="nav-text">校验数字的表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%A1%E9%AA%8C%E5%AD%97%E7%AC%A6%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.0.2.</span> <span class="nav-text">校验字符的表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E9%9C%80%E6%B1%82%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.0.3.</span> <span class="nav-text">特殊需求表达式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88%E4%B8%80%E5%AE%9A%E6%A0%87%E5%87%86%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">正则表达式：字符串模式（判断字符是否符合一定标准）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%A8%A1%E5%BC%8F%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.0.1.</span> <span class="nav-text">创建模式对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A0%E6%A8%A1%E5%BC%8F%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">无模式对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-number">2.1.</span> <span class="nav-text">文档的遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E7%9A%84%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.</span> <span class="nav-text">文档的搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-find-all-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.find_all() 字符串搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%87%E6%BB%A4%E4%B8%8E%E5%85%B6%E5%AE%8C%E5%85%A8%E7%9B%B8%E5%8C%B9%E9%85%8D%E7%9A%84%E6%A0%87%E7%AD%BE"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">1.1.字符串过滤与其完全相匹配的标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">1.2.正则表达式搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E6%A0%B9%E6%8D%AE%E5%87%BD%E6%95%B0%E6%90%9C%E7%B4%A0%EF%BC%8C%E7%94%A8%E4%BA%8E%E8%87%AA%E5%AE%9A%E4%B9%89"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">1.3.根据函数搜素，用于自定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-kwargs-%E5%8F%82%E6%95%B0%E6%94%B6%E7%B4%A2"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">2.kwargs 参数收索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-text%E5%8F%82%E6%95%B0"><span class="nav-number">2.2.1.5.</span> <span class="nav-text">3.text参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-limit-%E5%8F%82%E6%95%B0"><span class="nav-number">2.2.1.6.</span> <span class="nav-text">4.limit 参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-css%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.2.1.7.</span> <span class="nav-text">5.css选择器</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Goudan"
+      src="http://tva1.sinaimg.cn/large/005TIlQogy1h2yy7uxqs2j30u00u0wgn.jpg">
+  <p class="site-author-name" itemprop="name">Goudan</p>
+  <div class="site-description" itemprop="description">get better every day</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Rabishop" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Rabishop" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/moyuyihao" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;moyuyihao" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/08/2022_07_08_2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://tva1.sinaimg.cn/large/005TIlQogy1h2yy7uxqs2j30u00u0wgn.jpg">
+      <meta itemprop="name" content="Goudan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rabishop's Blog">
+      <meta itemprop="description" content="get better every day">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python访问服务器以及爬虫(2) | Rabishop's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python访问服务器以及爬虫(2)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-08 20:22:17 / Modified: 22:28:48" itemprop="dateCreated datePublished" datetime="2022-07-08T20:22:17+09:00">2022-07-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>终于把狗屎一样的合作项目弄完了，改改研究PPT，继续把爬虫弄了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我是狗			-名人名言其一</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我想打群星			-名人名言其二</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h1 id="常用正则表达式"><a href="#常用正则表达式" class="headerlink" title="常用正则表达式"></a>常用正则表达式</h1><h3 id="校验数字的表达式"><a href="#校验数字的表达式" class="headerlink" title="校验数字的表达式"></a><strong>校验数字的表达式</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> 1 数字：^[0-9]*$</span><br><span class="line"> 2 n位的数字：^\d&#123;n&#125;$</span><br><span class="line"> 3 至少n位的数字：^\d&#123;n,&#125;$</span><br><span class="line"> 4 m-n位的数字：^\d&#123;m,n&#125;$</span><br><span class="line"> 5 零和非零开头的数字：^(0|[1-9][0-9]*)$</span><br><span class="line"> 6 非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(.[0-9]&#123;1,2&#125;)?$</span><br><span class="line"> 7 带1-2位小数的正数或负数：^(\-)?\d+(\.\d&#123;1,2&#125;)?$</span><br><span class="line"> 8 正数、负数、和小数：^(\-|\+)?\d+(\.\d+)?$</span><br><span class="line"> 9 有两位小数的正实数：^[0-9]+(.[0-9]&#123;2&#125;)?$</span><br><span class="line">10 有1~3位小数的正实数：^[0-9]+(.[0-9]&#123;1,3&#125;)?$</span><br><span class="line">11 非零的正整数：^[1-9]\d*$ 或 ^([1-9][0-9]*)&#123;1,3&#125;$ 或 ^\+?[1-9][0-9]*$</span><br><span class="line">12 非零的负整数：^\-[1-9][]0-9*$ 或 ^-[1-9]\d*$</span><br><span class="line">13 非负整数：^\d+$ 或 ^[1-9]\d*|0$</span><br><span class="line">14 非正整数：^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$</span><br><span class="line">15 非负浮点数：^\d+(\.\d+)?$ 或 ^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$</span><br><span class="line">16 非正浮点数：^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 或 ^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$</span><br><span class="line">17 正浮点数：^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$ 或 ^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</span><br><span class="line">18 负浮点数：^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$ 或 ^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</span><br><span class="line">19 浮点数：^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$</span><br></pre></td></tr></table></figure>
+
+<h3 id="校验字符的表达式"><a href="#校验字符的表达式" class="headerlink" title="校验字符的表达式"></a><strong>校验字符的表达式</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> 1 汉字：^[\u4e00-\u9fa5]&#123;0,&#125;$</span><br><span class="line"> 2 英文和数字：^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]&#123;4,40&#125;$</span><br><span class="line"> 3 长度为3-20的所有字符：^.&#123;3,20&#125;$</span><br><span class="line"> 4 由26个英文字母组成的字符串：^[A-Za-z]+$</span><br><span class="line"> 5 由26个大写英文字母组成的字符串：^[A-Z]+$</span><br><span class="line"> 6 由26个小写英文字母组成的字符串：^[a-z]+$</span><br><span class="line"> 7 由数字和26个英文字母组成的字符串：^[A-Za-z0-9]+$</span><br><span class="line"> 8 由数字、26个英文字母或者下划线组成的字符串：^\w+$ 或 ^\w&#123;3,20&#125;$</span><br><span class="line"> 9 中文、英文、数字包括下划线：^[\u4E00-\u9FA5A-Za-z0-9_]+$</span><br><span class="line">10 中文、英文、数字但不包括下划线等符号：^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]&#123;2,20&#125;$</span><br><span class="line">11 可以输入含有^%&amp;&#x27;,;=?$\&quot;等字符：[^%&amp;&#x27;,;=?$\x22]+</span><br><span class="line">12 禁止输入含有~的字符：[^~\x22]+</span><br></pre></td></tr></table></figure>
+
+<h3 id="特殊需求表达式"><a href="#特殊需求表达式" class="headerlink" title="特殊需求表达式"></a><strong>特殊需求表达式</strong></h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span> Email地址：^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*<span class="variable">$</span></span><br><span class="line"><span class="variable"></span> <span class="number">2</span> 域名：[a-zA-<span class="variable constant_">Z0</span>-<span class="number">9</span>][-a-zA-<span class="variable constant_">Z0</span>-<span class="number">9</span>]&#123;<span class="number">0</span>,<span class="number">62</span>&#125;(<span class="regexp">/.[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+/</span>.?</span><br><span class="line"> <span class="number">3</span> InternetURL：[a-zA-z]+<span class="symbol">://</span>[^\s]* 或 ^<span class="symbol">http:</span>/<span class="regexp">/([\w-]+\.)+[\w-]+(/</span>[\w-./<span class="string">?%</span>&amp;=]*)<span class="string">?$</span></span><br><span class="line"> <span class="number">4</span> 手机号码：^(<span class="number">13</span>[<span class="number">0</span>-<span class="number">9</span>]|<span class="params">14[0-9]</span>|<span class="number">15</span>[<span class="number">0</span>-<span class="number">9</span>]|<span class="params">166</span>|<span class="number">17</span>[<span class="number">0</span>-<span class="number">9</span>]|<span class="params">18[0-9]</span>|<span class="number">19</span>[<span class="number">8</span>|<span class="params">9])\d&#123;8&#125;$</span></span><br><span class="line"><span class="params"> 5 电话号码(&quot;XXX-XXXXXXX&quot;、&quot;XXXX-XXXXXXXX&quot;、&quot;XXX-XXXXXXX&quot;、&quot;XXX-XXXXXXXX&quot;、&quot;XXXXXXX&quot;和&quot;XXXXXXXX&quot;)：^(\(\d&#123;3,4&#125;-)</span>|\d&#123;<span class="number">3.4</span>&#125;-)<span class="string">?\d</span>&#123;<span class="number">7</span>,<span class="number">8</span>&#125;<span class="variable">$</span></span><br><span class="line"><span class="variable"></span> <span class="number">6</span> 国内电话号码(<span class="number">0511</span>-<span class="number">4405222</span>、<span class="number">021</span>-<span class="number">87888822</span>)：\d&#123;<span class="number">3</span>&#125;-\d&#123;<span class="number">8</span>&#125;|<span class="params">\d&#123;4&#125;-\d&#123;7&#125;</span></span><br><span class="line"><span class="params"> 7 18位身份证号码(数字、字母x结尾)：^((\d&#123;18&#125;)</span>|([<span class="number">0</span>-9x]&#123;<span class="number">18</span>&#125;)|<span class="params">([0-9X]&#123;18&#125;))$</span></span><br><span class="line"><span class="params"> 8 帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]&#123;4,15&#125;$</span></span><br><span class="line"><span class="params"> 9 密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w&#123;5,17&#125;$</span></span><br><span class="line"><span class="params">10 强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).&#123;8,10&#125;$  </span></span><br><span class="line"><span class="params">11 日期格式：^\d&#123;4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;</span></span><br><span class="line"><span class="params">12 一年的12个月(01～09和1～12)：^(0?[1-9]</span>|<span class="number">1</span>[<span class="number">0</span>-<span class="number">2</span>])<span class="variable">$</span></span><br><span class="line"><span class="variable"></span><span class="number">13</span> 一个月的<span class="number">31</span>天(<span class="number">01</span>～09和<span class="number">1</span>～<span class="number">31</span>)：^((<span class="number">0</span>?[<span class="number">1</span>-<span class="number">9</span>])|<span class="params">((1</span>|<span class="number">2</span>)[<span class="number">0</span>-<span class="number">9</span>])|<span class="params">30</span>|<span class="number">31</span>)<span class="variable">$ </span></span><br><span class="line"><span class="number">14</span> 钱的输入格式：</span><br><span class="line"><span class="number">15</span>    <span class="number">1</span>.有四种钱的表示形式我们可以接受<span class="symbol">:<span class="string">&quot;10000.00&quot;</span></span> 和 <span class="string">&quot;10,000.00&quot;</span>, 和没有 <span class="string">&quot;分&quot;</span> 的 <span class="string">&quot;10000&quot;</span> 和 <span class="string">&quot;10,000&quot;</span>：^[<span class="number">1</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>]*<span class="variable">$ </span></span><br><span class="line"><span class="number">16</span>    <span class="number">2</span>.这表示任意一个不以<span class="number">0</span>开头的数字,但是,这也意味着一个字符<span class="string">&quot;0&quot;</span>不通过,所以我们采用下面的形式：^(<span class="number">0</span>|<span class="params">[1-9][0-9]*)$ </span></span><br><span class="line"><span class="params">17    3.一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：^(0</span>|-<span class="string">?[</span><span class="number">1</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>]*)<span class="variable">$ </span></span><br><span class="line"><span class="number">18</span>    <span class="number">4</span>.这表示一个<span class="number">0</span>或者一个可能为负的开头不为<span class="number">0</span>的数字.让用户以<span class="number">0</span>开头好了.把负号的也去掉,因为钱总不能是负的吧.下面我们要加的是说明可能的小数部分：^[<span class="number">0</span>-<span class="number">9</span>]+(.[<span class="number">0</span>-<span class="number">9</span>]+)<span class="string">?$</span> </span><br><span class="line"><span class="number">19</span>    <span class="number">5</span>.必须说明的是,小数点后面至少应该有<span class="number">1</span>位数,所以<span class="string">&quot;10.&quot;</span>是不通过的,但是 <span class="string">&quot;10&quot;</span> 和 <span class="string">&quot;10.2&quot;</span> 是通过的：^[<span class="number">0</span>-<span class="number">9</span>]+(.[<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">2</span>&#125;)<span class="string">?$</span> </span><br><span class="line"><span class="number">20</span>    <span class="number">6</span>.这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：^[<span class="number">0</span>-<span class="number">9</span>]+(.[<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">1</span>,<span class="number">2</span>&#125;)<span class="string">?$</span> </span><br><span class="line"><span class="number">21</span>    <span class="number">7</span>.这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：^[<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">1</span>,<span class="number">3</span>&#125;(,[<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">3</span>&#125;)*(.[<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">1</span>,<span class="number">2</span>&#125;)<span class="string">?$</span> </span><br><span class="line"><span class="number">22</span>    <span class="number">8.1</span>到<span class="number">3</span>个数字,后面跟着任意个 逗号+<span class="number">3</span>个数字,逗号成为可选,而不是必须：^([<span class="number">0</span>-<span class="number">9</span>]+|<span class="params">[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*)(.[0-9]&#123;1,2&#125;)?$ </span></span><br><span class="line"><span class="params">23    备注：这就是最终结果了,别忘了&quot;+&quot;可以用&quot;*&quot;替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里</span></span><br><span class="line"><span class="params">24 xml文件：^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x</span>|X][m|<span class="params">M][l</span>|L]<span class="variable">$</span></span><br><span class="line"><span class="variable"></span><span class="number">25</span> 中文字符的正则表达式：[\u4e00-\u9fa5]</span><br><span class="line"><span class="number">26</span> 双字节字符：[^\x00-\xff]    (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计<span class="number">2</span>，<span class="variable constant_">ASCII</span>字符计<span class="number">1</span>))</span><br><span class="line"><span class="number">27</span> 空白行的正则表达式：\n\s*\r    (可以用来删除空白行)</span><br><span class="line"><span class="number">28</span> <span class="variable constant_">HTML</span>标记的正则表达式：&lt;(\S*<span class="string">?)</span>[^&gt;]*&gt;.*<span class="string">?&lt;</span>/\<span class="number">1</span>&gt;|<span class="params">&lt;.*? /&gt;    (网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力)</span></span><br><span class="line"><span class="params">29 首尾空白字符的正则表达式：^\s*</span>|\s*<span class="variable">$或</span>(^\s*)|<span class="params">(\s*$)    (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</span></span><br><span class="line"><span class="params">30 腾讯QQ号：[1-9][0-9]&#123;4,&#125;    (腾讯QQ号从10000开始)</span></span><br><span class="line"><span class="params">31 中国邮政编码：[1-9]\d&#123;5&#125;(?!\d)    (中国邮政编码为6位数字)</span></span><br><span class="line"><span class="params">32 IP地址：\d+\.\d+\.\d+\.\d+    (提取IP地址时有用)</span></span><br><span class="line"><span class="params">33 IP地址：((?:(?:25[0-5]</span>|<span class="number">2</span>[<span class="number">0</span>-<span class="number">4</span>]\\d|<span class="params">[01]?\\d?\\d)\\.)&#123;3&#125;(?:25[0-5]</span>|<span class="number">2</span>[<span class="number">0</span>-<span class="number">4</span>]\\d|<span class="params">[01]?\\d?\\d))</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="正则表达式：字符串模式（判断字符是否符合一定标准）"><a href="#正则表达式：字符串模式（判断字符是否符合一定标准）" class="headerlink" title="正则表达式：字符串模式（判断字符是否符合一定标准）"></a>正则表达式：字符串模式（判断字符是否符合一定标准）</h1><h3 id="创建模式对象"><a href="#创建模式对象" class="headerlink" title="创建模式对象"></a>创建模式对象</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import  re</span><br><span class="line"></span><br><span class="line">pat = re.compile(&quot;AA&quot;) # 此处的AA，是正则表达式，用于匹配其他字符串</span><br><span class="line">m = pat.search(&quot;CBAA&quot;) # search字符串被校验的内容</span><br><span class="line"></span><br><span class="line">print(m)</span><br></pre></td></tr></table></figure>
+
+<h4 id="无模式对象"><a href="#无模式对象" class="headerlink" title="无模式对象"></a>无模式对象</h4><pre><code>m = re.search(&quot;asd&quot;,&quot;Aasd&quot;) #前面是规则，后面是被校验的字符串
+print(m)
+
+print(re.findall(&quot;a&quot;,&quot;AdagagdsaAAfdga&quot;)) #前面是规则，后面是被校验的字符串
+print(re.findall(&quot;[a-z]&quot;,&quot;AdagagdsaAAfdga&quot;)) #前面是规则，后面是被校验的字符串
+</code></pre>
+<h2 id="文档的遍历"><a href="#文档的遍历" class="headerlink" title="文档的遍历"></a>文档的遍历</h2><p>不太常用</p>
+<pre><code>for item in bs.head.contents:
+    print(item)
+</code></pre>
+<h2 id="文档的搜索"><a href="#文档的搜索" class="headerlink" title="文档的搜索"></a>文档的搜索</h2><h3 id="1-find-all-字符串搜索"><a href="#1-find-all-字符串搜索" class="headerlink" title="1.find_all() 字符串搜索"></a>1.find_all() 字符串搜索</h3><h4 id="1-1-字符串过滤与其完全相匹配的标签"><a href="#1-1-字符串过滤与其完全相匹配的标签" class="headerlink" title="1.1.字符串过滤与其完全相匹配的标签"></a>1.1.字符串过滤与其完全相匹配的标签</h4><pre><code>t_list = bs.find_all(&quot;a&quot;)
+print(t_list)
+</code></pre>
+<h4 id="1-2-正则表达式搜索"><a href="#1-2-正则表达式搜索" class="headerlink" title="1.2.正则表达式搜索"></a>1.2.正则表达式搜索</h4><pre><code>t_list = bs.find_all(re.compile(&quot;a&quot;))
+print(t_list)
+</code></pre>
+<h4 id="1-3-根据函数搜素，用于自定义"><a href="#1-3-根据函数搜素，用于自定义" class="headerlink" title="1.3.根据函数搜素，用于自定义"></a>1.3.根据函数搜素，用于自定义</h4><pre><code>def name_is_exists(tag):
+    return tag.has_attr(&quot;name&quot;)
+
+t_list = bs.find_all(name_is_exists)
+print(t_list)
+</code></pre>
+<h4 id="2-kwargs-参数收索"><a href="#2-kwargs-参数收索" class="headerlink" title="2.kwargs 参数收索"></a>2.kwargs 参数收索</h4><pre><code>t_list = bs.find_all(id=&quot;head&quot;)
+t_list = bs.find_all(class_=True)
+t_list = bs.find_all(href=&quot;//www.baidu.com/licence/&quot;)
+
+for item in t_list:
+    print(item)
+</code></pre>
+<h4 id="3-text参数"><a href="#3-text参数" class="headerlink" title="3.text参数"></a>3.text参数</h4><pre><code>t_list = bs.find_all(text=&quot;百度APP扫码登录&quot;) #查询文本内容
+t_list = bs.find_all(text=re.compile(&quot;百度&quot;)) #查询正则表表达式文本内容
+
+for item in t_list:
+    print(item)
+</code></pre>
+<h4 id="4-limit-参数"><a href="#4-limit-参数" class="headerlink" title="4.limit 参数"></a>4.limit 参数</h4><pre><code>t_list = bs.find_all(text=re.compile(&quot;百度&quot;), limit=3) #设置查找数量
+
+for item in t_list:
+    print(item)
+</code></pre>
+<h4 id="5-css选择器"><a href="#5-css选择器" class="headerlink" title="5.css选择器"></a>5.css选择器</h4><pre><code>t_list = bs.select(&#39;title&#39;) #标签查找
+t_list = bs.select(&quot;.mnav&quot;) #类名查找
+t_list = bs.select(&quot;#u1&quot;) #id查找
+t_list = bs.select(&quot;a[class=&#39;text-color&#39;]&quot;) #属性查找
+t_list = bs.select(&quot;head &gt; meta&quot;) #子标签查找
+t_list = bs.select(&quot;.mnav ~ .mnav&quot;) #兄弟标签查找
+
+for item in t_list:
+    print(item.get_text())
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/08/2022_07_08_1/" rel="prev" title="暗号技術特論期末試験">
+                  <i class="fa fa-chevron-left"></i> 暗号技術特論期末試験
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Goudan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="python访问服务器以及爬虫（1）试听B站IT私塾视频的笔记。光听没有屁用，还是必须要亲自实现一遍，才能成为自己的东西。这个工作其实早就该做了，拖到现在还没看完确实该好好反省了。希望自己能够在这个月结束之前把这个爬虫弄出来。然后再去爬一个别的网站试试。然后就是和班上的同学一起把项目发表做了，之后就是改ppt了。然后，然后再就是学了一年的solidity，被我无限制拖延症留下来的远古巨坑，害。 1">
+    <meta name="description" content="试听B站IT私塾视频的笔记。光听没有屁用，还是必须要亲自实现一遍，才能成为自己的东西。这个工作其实早就该做了，拖到现在还没看完确实该好好反省了。希望自己能够在这个月结束之前把这个爬虫弄出来。然后再去爬一个别的网站试试。然后就是和班上的同学一起把项目发表做了，之后就是改ppt了。然后，然后再就是学了一年的solidity，被我无限制拖延症留下来的远古巨坑，害。 1金秀树啊金秀树！你怎么能如此堕落！先">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python访问服务器以及爬虫">
+<meta property="og:title" content="python访问服务器以及爬虫(1)">
 <meta property="og:url" content="http://example.com/2022/06/27/2022_06_27/index.html">
 <meta property="og:site_name" content="Rabishop&#39;s Blog">
-<meta property="og:description" content="python访问服务器以及爬虫（1）试听B站IT私塾视频的笔记。光听没有屁用，还是必须要亲自实现一遍，才能成为自己的东西。这个工作其实早就该做了，拖到现在还没看完确实该好好反省了。希望自己能够在这个月结束之前把这个爬虫弄出来。然后再去爬一个别的网站试试。然后就是和班上的同学一起把项目发表做了，之后就是改ppt了。然后，然后再就是学了一年的solidity，被我无限制拖延症留下来的远古巨坑，害。 1">
+<meta property="og:description" content="试听B站IT私塾视频的笔记。光听没有屁用，还是必须要亲自实现一遍，才能成为自己的东西。这个工作其实早就该做了，拖到现在还没看完确实该好好反省了。希望自己能够在这个月结束之前把这个爬虫弄出来。然后再去爬一个别的网站试试。然后就是和班上的同学一起把项目发表做了，之后就是改ppt了。然后，然后再就是学了一年的solidity，被我无限制拖延症留下来的远古巨坑，害。 1金秀树啊金秀树！你怎么能如此堕落！先">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-06-27T14:10:59.592Z">
-<meta property="article:modified_time" content="2022-07-08T10:40:35.027Z">
+<meta property="article:modified_time" content="2022-07-08T11:23:21.685Z">
 <meta property="article:author" content="Goudan">
 <meta name="twitter:card" content="summary">
 
@@ -37,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/06/27/2022_06_27/","path":"2022/06/27/2022_06_27/","title":"python访问服务器以及爬虫"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/06/27/2022_06_27/","path":"2022/06/27/2022_06_27/","title":"python访问服务器以及爬虫(1)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>python访问服务器以及爬虫 | Rabishop's Blog</title>
+<title>python访问服务器以及爬虫(1) | Rabishop's Blog</title>
   
 
 
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A5%E5%8F%8A%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">python访问服务器以及爬虫（1）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%88%E4%BA%86%E8%A7%A3%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%90%A7"><span class="nav-number">2.</span> <span class="nav-text">先了解些基础知识吧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#urllib"><span class="nav-number">2.1.</span> <span class="nav-text">urllib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get%E6%A8%A1%E5%BC%8F%E8%AE%BF%E9%97%AE%E7%BD%91%E9%A1%B5"><span class="nav-number">2.2.</span> <span class="nav-text">get模式访问网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#post%E6%A8%A1%E5%BC%8F%E8%AE%BF%E9%97%AE%E7%BD%91%E9%A1%B5"><span class="nav-number">2.3.</span> <span class="nav-text">post模式访问网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timeout%E8%B6%85%E6%97%B6%E6%A3%80%E6%B5%8B"><span class="nav-number">2.4.</span> <span class="nav-text">timeout超时检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#status%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81-x2F-getheaders-%E8%BF%94%E5%9B%9E%E5%93%8D%E5%BA%94%E5%A4%B4"><span class="nav-number">2.5.</span> <span class="nav-text">status返回状态&#x2F;getheaders()返回响应头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#header%E4%BC%AA%E8%A3%85"><span class="nav-number">2.6.</span> <span class="nav-text">header伪装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%9F%E8%AF%9D%E4%B8%8D%E5%A4%9A%E8%AF%B4%EF%BC%8C%E5%BC%80%E7%88%AC"><span class="nav-number">3.</span> <span class="nav-text">废话不多说，开爬</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#askURL-url-%E5%BE%97%E5%88%B0%E6%8C%87%E5%AE%9AURL%E7%9A%84%E7%BD%91%E9%A1%B5%E5%86%85%E5%AE%B9"><span class="nav-number">3.1.</span> <span class="nav-text">askURL(url) 得到指定URL的网页内容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#getData-%E7%88%AC%E5%8F%96%E5%A4%8D%E6%95%B0%E7%BD%91%E9%A1%B5"><span class="nav-number">4.</span> <span class="nav-text">getData() 爬取复数网页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BeautifulSoup%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5"><span class="nav-number">5.</span> <span class="nav-text">BeautifulSoup解析网页</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%88%E4%BA%86%E8%A7%A3%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%90%A7"><span class="nav-number">1.</span> <span class="nav-text">先了解些基础知识吧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#urllib"><span class="nav-number">1.1.</span> <span class="nav-text">urllib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get%E6%A8%A1%E5%BC%8F%E8%AE%BF%E9%97%AE%E7%BD%91%E9%A1%B5"><span class="nav-number">1.2.</span> <span class="nav-text">get模式访问网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#post%E6%A8%A1%E5%BC%8F%E8%AE%BF%E9%97%AE%E7%BD%91%E9%A1%B5"><span class="nav-number">1.3.</span> <span class="nav-text">post模式访问网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timeout%E8%B6%85%E6%97%B6%E6%A3%80%E6%B5%8B"><span class="nav-number">1.4.</span> <span class="nav-text">timeout超时检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#status%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81-x2F-getheaders-%E8%BF%94%E5%9B%9E%E5%93%8D%E5%BA%94%E5%A4%B4"><span class="nav-number">1.5.</span> <span class="nav-text">status返回状态&#x2F;getheaders()返回响应头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#header%E4%BC%AA%E8%A3%85"><span class="nav-number">1.6.</span> <span class="nav-text">header伪装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%9F%E8%AF%9D%E4%B8%8D%E5%A4%9A%E8%AF%B4%EF%BC%8C%E5%BC%80%E7%88%AC"><span class="nav-number">2.</span> <span class="nav-text">废话不多说，开爬</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#askURL-url-%E5%BE%97%E5%88%B0%E6%8C%87%E5%AE%9AURL%E7%9A%84%E7%BD%91%E9%A1%B5%E5%86%85%E5%AE%B9"><span class="nav-number">2.1.</span> <span class="nav-text">askURL(url) 得到指定URL的网页内容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#getData-%E7%88%AC%E5%8F%96%E5%A4%8D%E6%95%B0%E7%BD%91%E9%A1%B5"><span class="nav-number">3.</span> <span class="nav-text">getData() 爬取复数网页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BeautifulSoup%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5"><span class="nav-number">4.</span> <span class="nav-text">BeautifulSoup解析网页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Tag-%E6%A0%87%E7%AD%BE%E5%8F%8A%E5%85%B6%E5%86%85%E5%AE%B9%EF%BC%9A%E6%8B%BF%E5%88%B0%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%8C%87%E5%AE%9A%E5%86%85%E5%AE%B9"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">1.Tag 标签及其内容：拿到第一个指定内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-NavigableString-%E6%A0%87%E7%AD%BE%E9%87%8C%E9%9D%A2%E7%9A%84%E5%86%85%E5%AE%B9-%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E5%92%8C%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">2.NavigableString 标签里面的内容(文本内容和标签属性)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-BeautifulSoup-%E8%A1%A8%E7%A4%BA%E6%95%B4%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">3.BeautifulSoup 表示整个文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Comment-%E7%89%B9%E6%AE%8A%E7%9A%84NavigableString-%E8%BE%93%E5%87%BA%E4%B8%8D%E5%8C%85%E6%8B%AC%E6%B3%A8%E9%87%8A%E7%AC%A6"><span class="nav-number">4.0.0.4.</span> <span class="nav-text">4.Comment 特殊的NavigableString 输出不包括注释符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-number">4.1.</span> <span class="nav-text">文档的遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E7%9A%84%E6%90%9C%E7%B4%A2"><span class="nav-number">4.2.</span> <span class="nav-text">文档的搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-find-all-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2"><span class="nav-number">4.2.1.</span> <span class="nav-text">1.find_all() 字符串搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%87%E6%BB%A4%E4%B8%8E%E5%85%B6%E5%AE%8C%E5%85%A8%E7%9B%B8%E5%8C%B9%E9%85%8D%E7%9A%84%E6%A0%87%E7%AD%BE"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">1.1.字符串过滤与其完全相匹配的标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%90%9C%E7%B4%A2"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">1.2.正则表达式搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E6%A0%B9%E6%8D%AE%E5%87%BD%E6%95%B0%E6%90%9C%E7%B4%A0%EF%BC%8C%E7%94%A8%E4%BA%8E%E8%87%AA%E5%AE%9A%E4%B9%89"><span class="nav-number">4.2.1.3.</span> <span class="nav-text">1.3.根据函数搜素，用于自定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-kwargs-%E5%8F%82%E6%95%B0%E6%94%B6%E7%B4%A2"><span class="nav-number">4.2.1.4.</span> <span class="nav-text">2.kwargs 参数收索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-text%E5%8F%82%E6%95%B0"><span class="nav-number">4.2.1.5.</span> <span class="nav-text">3.text参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-limit-%E5%8F%82%E6%95%B0"><span class="nav-number">4.2.1.6.</span> <span class="nav-text">4.limit 参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-css%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">4.2.1.7.</span> <span class="nav-text">5.css选择器</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -131,7 +131,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -197,12 +197,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="python访问服务器以及爬虫 | Rabishop's Blog">
+      <meta itemprop="name" content="python访问服务器以及爬虫(1) | Rabishop's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          python访问服务器以及爬虫
+          python访问服务器以及爬虫(1)
         </h1>
 
         <div class="post-meta-container">
@@ -220,7 +220,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-08 19:40:35" itemprop="dateModified" datetime="2022-07-08T19:40:35+09:00">2022-07-08</time>
+      <time title="Modified: 2022-07-08 20:23:21" itemprop="dateModified" datetime="2022-07-08T20:23:21+09:00">2022-07-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -246,7 +246,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="python访问服务器以及爬虫（1）"><a href="#python访问服务器以及爬虫（1）" class="headerlink" title="python访问服务器以及爬虫（1）"></a>python访问服务器以及爬虫（1）</h1><p>试听B站IT私塾视频的笔记。光听没有屁用，还是必须要亲自实现一遍，才能成为自己的东西。这个工作其实早就该做了，拖到现在还没看完确实该好好反省了。希望自己能够在这个月结束之前把这个爬虫弄出来。然后再去爬一个别的网站试试。然后就是和班上的同学一起把项目发表做了，之后就是改ppt了。然后，然后再就是学了一年的solidity，被我无限制拖延症留下来的远古巨坑，害。</p>
+        <p>试听B站IT私塾视频的笔记。光听没有屁用，还是必须要亲自实现一遍，才能成为自己的东西。这个工作其实早就该做了，拖到现在还没看完确实该好好反省了。希望自己能够在这个月结束之前把这个爬虫弄出来。然后再去爬一个别的网站试试。然后就是和班上的同学一起把项目发表做了，之后就是改ppt了。然后，然后再就是学了一年的solidity，被我无限制拖延症留下来的远古巨坑，害。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">金秀树啊金秀树！你怎么能如此堕落！先前订下的学习计划你都忘了吗？			-名人名言其一</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">白天再打游戏就是狗			-名人名言其二</span><br></pre></td></tr></table></figure>
@@ -339,41 +339,67 @@ except urllib.error.URLError as e:
 html = file.read().decode(&#39;utf-8&#39;)
 bs = BeautifulSoup(html, &quot;html.parser&quot;)
 </code></pre>
-<p>##1.Tag 标签及其内容：拿到第一个指定内容<br>Tag:我觉得我不常用XD</p>
+<h4 id="1-Tag-标签及其内容：拿到第一个指定内容"><a href="#1-Tag-标签及其内容：拿到第一个指定内容" class="headerlink" title="1.Tag 标签及其内容：拿到第一个指定内容"></a>1.Tag 标签及其内容：拿到第一个指定内容</h4><p>Tag:我觉得我不常用XD</p>
 <pre><code>print(bs.title)
 print(type(bs.title))
 </code></pre>
-<p>##2.NavigableString 标签里面的内容(文本内容和标签属性)<br>NavigableString：我们的主角，超人，superstar。文本分析就靠它</p>
+<h4 id="2-NavigableString-标签里面的内容-文本内容和标签属性"><a href="#2-NavigableString-标签里面的内容-文本内容和标签属性" class="headerlink" title="2.NavigableString 标签里面的内容(文本内容和标签属性)"></a>2.NavigableString 标签里面的内容(文本内容和标签属性)</h4><p>NavigableString：我们的主角，超人，superstar。文本分析就靠它</p>
 <pre><code>print(bs.title.string)
 print(type(bs.title.string)) #输出文字内容
 print(bs.a.attrs) #输出标签属性值
 </code></pre>
-<p>##3.BeautifulSoup 表示整个文档<br>不知道有什么卵用</p>
+<h4 id="3-BeautifulSoup-表示整个文档"><a href="#3-BeautifulSoup-表示整个文档" class="headerlink" title="3.BeautifulSoup 表示整个文档"></a>3.BeautifulSoup 表示整个文档</h4><p>不知道有什么卵用</p>
 <pre><code>print(type(bs))
 print(bs)
 </code></pre>
-<p>##4.Comment 特殊的NavigableString 输出不包括注释符<br>不知道有什么卵用X2</p>
+<h4 id="4-Comment-特殊的NavigableString-输出不包括注释符"><a href="#4-Comment-特殊的NavigableString-输出不包括注释符" class="headerlink" title="4.Comment 特殊的NavigableString 输出不包括注释符"></a>4.Comment 特殊的NavigableString 输出不包括注释符</h4><p>不知道有什么卵用*2</p>
 <pre><code>print(bs.a.string)
 print(type(bs.a.string))
 </code></pre>
-<p>#—————————————-最美分割线—————————————-</p>
-<p>##文档的遍历<br>不太常用</p>
+<h2 id="文档的遍历"><a href="#文档的遍历" class="headerlink" title="文档的遍历"></a>文档的遍历</h2><p>不太常用</p>
 <pre><code>for item in bs.head.contents:
     print(item)
 </code></pre>
-<p>##文档的搜索</p>
-<p>###1.find_all() 字符串搜索<br>#1.1.字符串过滤与其完全相匹配的标签<br>t_list &#x3D; bs.find_all(“a”)<br>print(t_list)</p>
-<p>#1.2.正则表达式搜索<br>t_list &#x3D; bs.find_all(re.compile(“a”))<br>print(t_list)</p>
-<p>#1.3.根据函数搜素，用于自定义<br>def name_is_exists(tag):<br>    return tag.has_attr(“name”)</p>
-<p>t_list &#x3D; bs.find_all(name_is_exists)<br>print(t_list)</p>
-<p>#2.kwargs 参数收索<br>t_list &#x3D; bs.find_all(id&#x3D;”head”)<br>t_list &#x3D; bs.find_all(class_&#x3D;True)<br>t_list &#x3D; bs.find_all(href&#x3D;”&#x2F;&#x2F;<a target="_blank" rel="noopener" href="http://www.baidu.com/licence/&quot;">www.baidu.com/licence/&quot;</a>)</p>
-<p>for item in t_list:<br>    print(item)<br>#3.text参数<br>t_list &#x3D; bs.find_all(text&#x3D;”百度APP扫码登录”) #查询文本内容<br>t_list &#x3D; bs.find_all(text&#x3D;re.compile(“百度”)) #查询正则表表达式文本内容</p>
-<p>for item in t_list:<br>    print(item)</p>
-<p>#4.limit 参数<br>t_list &#x3D; bs.find_all(text&#x3D;re.compile(“百度”), limit&#x3D;3) #设置查找数量</p>
-<p>for item in t_list:<br>    print(item)<br>‘’’</p>
-<p>#5.css选择器</p>
-<p>t_list &#x3D; bs.select(‘title’) #标签查找<br>t_list &#x3D; bs.select(“.mnav”) #类名查找<br>t_list &#x3D; bs.select(“#u1”) #id查找<br>t_list &#x3D; bs.select(“a[class&#x3D;’text-color’]”) #属性查找<br>t_list &#x3D; bs.select(“head &gt; meta”) #子标签查找<br>t_list &#x3D; bs.select(“.mnav ~ .mnav”) #兄弟标签查找</p>
-<p>for item in t_list:<br>    print(item.get_text())</p>
+<h2 id="文档的搜索"><a href="#文档的搜索" class="headerlink" title="文档的搜索"></a>文档的搜索</h2><h3 id="1-find-all-字符串搜索"><a href="#1-find-all-字符串搜索" class="headerlink" title="1.find_all() 字符串搜索"></a>1.find_all() 字符串搜索</h3><h4 id="1-1-字符串过滤与其完全相匹配的标签"><a href="#1-1-字符串过滤与其完全相匹配的标签" class="headerlink" title="1.1.字符串过滤与其完全相匹配的标签"></a>1.1.字符串过滤与其完全相匹配的标签</h4><pre><code>t_list = bs.find_all(&quot;a&quot;)
+print(t_list)
+</code></pre>
+<h4 id="1-2-正则表达式搜索"><a href="#1-2-正则表达式搜索" class="headerlink" title="1.2.正则表达式搜索"></a>1.2.正则表达式搜索</h4><pre><code>t_list = bs.find_all(re.compile(&quot;a&quot;))
+print(t_list)
+</code></pre>
+<h4 id="1-3-根据函数搜素，用于自定义"><a href="#1-3-根据函数搜素，用于自定义" class="headerlink" title="1.3.根据函数搜素，用于自定义"></a>1.3.根据函数搜素，用于自定义</h4><pre><code>def name_is_exists(tag):
+    return tag.has_attr(&quot;name&quot;)
+
+t_list = bs.find_all(name_is_exists)
+print(t_list)
+</code></pre>
+<h4 id="2-kwargs-参数收索"><a href="#2-kwargs-参数收索" class="headerlink" title="2.kwargs 参数收索"></a>2.kwargs 参数收索</h4><pre><code>t_list = bs.find_all(id=&quot;head&quot;)
+t_list = bs.find_all(class_=True)
+t_list = bs.find_all(href=&quot;//www.baidu.com/licence/&quot;)
+
+for item in t_list:
+    print(item)
+</code></pre>
+<h4 id="3-text参数"><a href="#3-text参数" class="headerlink" title="3.text参数"></a>3.text参数</h4><pre><code>t_list = bs.find_all(text=&quot;百度APP扫码登录&quot;) #查询文本内容
+t_list = bs.find_all(text=re.compile(&quot;百度&quot;)) #查询正则表表达式文本内容
+
+for item in t_list:
+    print(item)
+</code></pre>
+<h4 id="4-limit-参数"><a href="#4-limit-参数" class="headerlink" title="4.limit 参数"></a>4.limit 参数</h4><pre><code>t_list = bs.find_all(text=re.compile(&quot;百度&quot;), limit=3) #设置查找数量
+
+for item in t_list:
+    print(item)
+</code></pre>
+<h4 id="5-css选择器"><a href="#5-css选择器" class="headerlink" title="5.css选择器"></a>5.css选择器</h4><pre><code>t_list = bs.select(&#39;title&#39;) #标签查找
+t_list = bs.select(&quot;.mnav&quot;) #类名查找
+t_list = bs.select(&quot;#u1&quot;) #id查找
+t_list = bs.select(&quot;a[class=&#39;text-color&#39;]&quot;) #属性查找
+t_list = bs.select(&quot;head &gt; meta&quot;) #子标签查找
+t_list = bs.select(&quot;.mnav ~ .mnav&quot;) #兄弟标签查找
+
+for item in t_list:
+    print(item.get_text())
+</code></pre>
 
     </div>
 
@@ -392,7 +418,7 @@ print(type(bs.a.string))
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/07/08/2022_07_08/" rel="next" title="暗号技術特論期末試験">
+                <a href="/2022/07/08/2022_07_08_1/" rel="next" title="暗号技術特論期末試験">
                   暗号技術特論期末試験 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
