@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="保存爬取文件到数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python访问服务器以及爬虫(4)">
+<meta property="og:url" content="http://example.com/2022/07/15/2022_07_15/index.html">
+<meta property="og:site_name" content="Rabishop&#39;s Blog">
+<meta property="og:description" content="保存爬取文件到数据库">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-07-15T12:49:33.560Z">
+<meta property="article:modified_time" content="2022-07-16T09:38:25.678Z">
+<meta property="article:author" content="Goudan">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/07/15/2022_07_15/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/07/15/2022_07_15/","path":"2022/07/15/2022_07_15/","title":"python访问服务器以及爬虫(4)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python访问服务器以及爬虫(4) | Rabishop's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Rabishop's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Hello,world.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8Ehello-world%E5%BC%80%E5%A7%8B"><span class="nav-number">1.</span> <span class="nav-text">从hello world开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAExcel%E6%96%87%E4%BB%B6%E5%B9%B6%E4%B8%94%E6%89%93%E5%8D%B0%E4%B8%80%E4%B8%AA99%E4%B9%98%E6%B3%95%E8%A1%A8"><span class="nav-number">1.1.</span> <span class="nav-text">创建一个Excel文件并且打印一个99乘法表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.</span> <span class="nav-text">保存数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B5%8B%E8%AF%95"><span class="nav-number">2.</span> <span class="nav-text">数据库测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">1.连接数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-number">2.2.</span> <span class="nav-text">2.创建数据表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">2.3.</span> <span class="nav-text">3.插入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">2.4.</span> <span class="nav-text">4.查询数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BF%9D%E5%AD%98%E7%94%B5%E5%BD%B1%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">为保存电影创建数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%98%E5%8F%96%E8%8E%B7%E5%BE%97%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-number">4.</span> <span class="nav-text">存取获得的数据</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Goudan"
+      src="http://tva1.sinaimg.cn/large/005TIlQogy1h2yy7uxqs2j30u00u0wgn.jpg">
+  <p class="site-author-name" itemprop="name">Goudan</p>
+  <div class="site-description" itemprop="description">get better every day</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Rabishop" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Rabishop" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/moyuyihao" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;moyuyihao" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/15/2022_07_15/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://tva1.sinaimg.cn/large/005TIlQogy1h2yy7uxqs2j30u00u0wgn.jpg">
+      <meta itemprop="name" content="Goudan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rabishop's Blog">
+      <meta itemprop="description" content="get better every day">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python访问服务器以及爬虫(4) | Rabishop's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python访问服务器以及爬虫(4)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-15 21:49:33" itemprop="dateCreated datePublished" datetime="2022-07-15T21:49:33+09:00">2022-07-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-16 18:38:25" itemprop="dateModified" datetime="2022-07-16T18:38:25+09:00">2022-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <center>保存爬取文件到数据库</center>
+
+<span id="more"></span>
+
+<h1 id="从hello-world开始"><a href="#从hello-world开始" class="headerlink" title="从hello world开始"></a>从hello world开始</h1><h2 id="创建一个Excel文件并且打印一个99乘法表"><a href="#创建一个Excel文件并且打印一个99乘法表" class="headerlink" title="创建一个Excel文件并且打印一个99乘法表"></a>创建一个Excel文件并且打印一个99乘法表</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import xlwt</span><br><span class="line"></span><br><span class="line">workbook = xlwt.Workbook(encoding=&quot;uft-8&quot;) #创建workbook对象</span><br><span class="line">worksheet = workbook.add_sheet(&#x27;sheet1&#x27;) #创建工作表</span><br><span class="line"></span><br><span class="line"># worksheet.write(0, 0, &quot;hello&quot;)</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">for i in range(1, 10):</span><br><span class="line">    for j in range(1, i + 1):</span><br><span class="line"></span><br><span class="line">        s = &quot;%d*%d=%d&quot; % (i, j, i * j)</span><br><span class="line">        worksheet.write(i-1, j-1, s)</span><br><span class="line"></span><br><span class="line">workbook.save(&#x27;student.xls&#x27;)</span><br><span class="line">&#x27;&#x27;&#x27;#99乘法表</span><br></pre></td></tr></table></figure>
+
+<h2 id="保存数据"><a href="#保存数据" class="headerlink" title="保存数据"></a>保存数据</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 3.保存数据</span><br><span class="line">def saveData(datalist, savepath):</span><br><span class="line">    book = xlwt.Workbook(encoding=&quot;uft-8&quot;, style_compression=0)  # 创建workbook对象</span><br><span class="line">    sheet = book.add_sheet(&#x27;sheet1&#x27;, cell_overwrite_ok=True)  # 创建工作表</span><br><span class="line"></span><br><span class="line">    col = (&quot;电影详情链接&quot;, &quot;图片链接&quot;, &quot;影片中文名&quot;, &quot;影片外文名&quot;, &quot;评分&quot;, &quot;评价数&quot;, &quot;概况&quot;, &quot;相关信息&quot;)</span><br><span class="line">    for i in range(0, 8):</span><br><span class="line">        sheet.write(0, i, col[i])  # 列名</span><br><span class="line">    for i in range(250):</span><br><span class="line">        print(&quot;第%d条&quot; % (i+1))</span><br><span class="line">        data = datalist[i]</span><br><span class="line">        for j in range(0, 8):</span><br><span class="line">            sheet.write(i+1, j, data[j])</span><br><span class="line"></span><br><span class="line">    book.save(savepath)</span><br></pre></td></tr></table></figure>
+
+<h1 id="数据库测试"><a href="#数据库测试" class="headerlink" title="数据库测试"></a>数据库测试</h1><h2 id="1-连接数据库"><a href="#1-连接数据库" class="headerlink" title="1.连接数据库"></a>1.连接数据库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conn = sqlite3.connect(&quot;test.db&quot;)  # 打开或创建数据库文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-创建数据表"><a href="#2-创建数据表" class="headerlink" title="2.创建数据表"></a>2.创建数据表</h2><pre><code>c = conn.cursor()  # 获取游标
+sql = &#39;&#39;&#39;
+    create table company
+        (id int primary key not null,
+        name text not null,
+        age int not null,
+        address char(50),
+        salary real);
+&#39;&#39;&#39;
+
+c.execute(sql)  # 执行sql语句
+conn.commit()  # 提交数据库操作
+conn.close()  # 关闭数据库
+</code></pre>
+<h2 id="3-插入数据"><a href="#3-插入数据" class="headerlink" title="3.插入数据"></a>3.插入数据</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">c = conn.cursor()  # 获取游标</span><br><span class="line">sql1 = &#x27;&#x27;&#x27;</span><br><span class="line">    insert into company (id, name, age, address, salary)</span><br><span class="line">     values (1, &quot;张三&quot;, 32, &quot;成都&quot;, 8000)</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">sql2 = &#x27;&#x27;&#x27;</span><br><span class="line">    insert into company (id, name, age, address, salary)</span><br><span class="line">     values (2, &quot;李四&quot;, 30, &quot;重庆&quot;, 15000)</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">c.execute(sql1)  # 执行sql语句</span><br><span class="line">c.execute(sql2)  # 执行sql语句</span><br><span class="line">conn.commit()  # 提交数据库操作</span><br><span class="line">conn.close()  # 关闭数据库</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-查询数据"><a href="#4-查询数据" class="headerlink" title="4.查询数据"></a>4.查询数据</h2><pre><code>c = conn.cursor()  # 获取游标
+
+sql1 = &#39;&#39;&#39;
+    select id,name,address,salary from company
+&#39;&#39;&#39;
+
+cursor = c.execute(sql1)  # 执行sql语句
+
+for row in cursor:
+    print(&quot;id = &quot;,row[0])
+    print(&quot;name = &quot;, row[1])
+    print(&quot;address = &quot;, row[2])
+    print(&quot;salary = &quot;, row[3])
+    print(&quot;&quot;)
+
+conn.close()  # 关闭数据库
+</code></pre>
+<h1 id="为保存电影创建数据库"><a href="#为保存电影创建数据库" class="headerlink" title="为保存电影创建数据库"></a>为保存电影创建数据库</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def init_db(dbpath):</span><br><span class="line">    sql = &#x27;&#x27;&#x27;</span><br><span class="line">        create table if not exists movie</span><br><span class="line">        (</span><br><span class="line">        id integer primary key autoincrement,</span><br><span class="line">        info_link text,</span><br><span class="line">        pic_link text,</span><br><span class="line">        cname varchar,</span><br><span class="line">        ename varchar,</span><br><span class="line">        score numeric,</span><br><span class="line">        rated numeric,</span><br><span class="line">        instroduction text,</span><br><span class="line">        info text</span><br><span class="line">        )</span><br><span class="line">    &#x27;&#x27;&#x27;  # 创建数据库</span><br><span class="line">    conn = sqlite3.connect(dbpath)</span><br><span class="line">    cursor = conn.cursor()</span><br><span class="line">    cursor.execute(sql)</span><br><span class="line">    conn.commit()</span><br><span class="line">    conn.close()</span><br></pre></td></tr></table></figure>
+
+<h1 id="存取获得的数据"><a href="#存取获得的数据" class="headerlink" title="存取获得的数据"></a>存取获得的数据</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def savaData2DB(datalist, dbpath):</span><br><span class="line">    init_db(dbpath)</span><br><span class="line"></span><br><span class="line">    conn = sqlite3.connect(dbpath)</span><br><span class="line">    cur = conn.cursor()</span><br><span class="line"></span><br><span class="line">    for data in datalist:</span><br><span class="line">        for index in range(len(data)):</span><br><span class="line">            data[index] = &#x27;&quot;&#x27; + data[index] + &#x27;&quot;&#x27;</span><br><span class="line"></span><br><span class="line">        sql = &#x27;&#x27;&#x27;</span><br><span class="line">            insert into movie (</span><br><span class="line">            info_link,pic_link,cname,ename,score,rated,instroduction,info)</span><br><span class="line">            values (%s)</span><br><span class="line">        &#x27;&#x27;&#x27; % &quot;,&quot;.join(data)</span><br><span class="line"></span><br><span class="line">        cur.execute(sql)</span><br><span class="line">        conn.commit()</span><br><span class="line">    cur.close()</span><br><span class="line">    conn.close()</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/14/2022_07_14/" rel="prev" title="python访问服务器以及爬虫(3)">
+                  <i class="fa fa-chevron-left"></i> python访问服务器以及爬虫(3)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/16/%E8%B1%86%E7%93%A3top250%E7%94%B5%E5%BD%B1%E7%88%AC%E5%8F%96/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Goudan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
